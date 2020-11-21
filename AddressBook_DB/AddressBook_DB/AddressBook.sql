@@ -37,3 +37,8 @@ create table AddressBook_Table
  */
  update AddressBook_Table set address = 'DA Street' 
 where firstName = 'Prudhvi' and secondName = 'Reddy';
+/*
+UC-5
+Delete data from the address book table where name matches 
+*/
+delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
