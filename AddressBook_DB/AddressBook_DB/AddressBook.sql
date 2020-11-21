@@ -30,4 +30,10 @@ create table AddressBook_Table
  /*
   Displaying the contacts from table
  */
- select * from addressBook_Table
+ select * from AddressBook_Table
+ /*
+ UC-4
+ Edit existing contact using their name
+ */
+ update AddressBook_Table set address = 'DA Street' 
+where firstName = 'Prudhvi' and secondName = 'Reddy';
