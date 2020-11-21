@@ -56,3 +56,10 @@ delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
  select city,count(*) as 'Number of Contacts' from AddressBook_Table group by city;
  /* displaying the count of contacts by state*/
  select state,count(*) as 'Number of Contacts' from addressBook_Table group by state;
+ /*
+  UC-8
+  Sorting alphabetically in ascending order by the name and belonging to a city
+ */
+ select * from AddressBook_Table
+ where city = 'SFO'
+ order by firstName;
