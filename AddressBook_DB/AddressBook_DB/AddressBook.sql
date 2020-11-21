@@ -42,3 +42,12 @@ UC-5
 Delete data from the address book table where name matches 
 */
 delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
+/*
+ UC-6
+ Displaying the contact from the address book table matching the state 
+*/
+ select * from AddressBook_Table where state = 'Andhra Pradesh';
+/*
+ Displaying the contact from the address book table matching the city 
+*/
+ select * from AddressBook_Table where city = 'tpty';
