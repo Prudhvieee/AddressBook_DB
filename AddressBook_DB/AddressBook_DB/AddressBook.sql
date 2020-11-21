@@ -63,3 +63,7 @@ delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
  select * from AddressBook_Table
  where city = 'SFO'
  order by firstName;
+ /*
+  UC-9
+  Adding the columns for address book  */
+ alter table AddressBook_Table add addressBookType varchar(30), addressBookName varchar(40);
