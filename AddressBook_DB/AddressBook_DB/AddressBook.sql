@@ -51,3 +51,8 @@ delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
  Displaying the contact from the address book table matching the city 
 */
  select * from AddressBook_Table where city = 'tpty';
+  /*UC-7
+ Displaying the count of contacts by city*/
+ select city,count(*) as 'Number of Contacts' from AddressBook_Table group by city;
+ /* displaying the count of contacts by state*/
+ select state,count(*) as 'Number of Contacts' from addressBook_Table group by state;
