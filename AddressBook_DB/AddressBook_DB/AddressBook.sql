@@ -85,4 +85,43 @@ select contactType, COUNT(*) as 'Number Of Contacts' from addressBook_Table grou
 /* UC-11 Adding contact as family type*/
 insert into AddressBook_Table (firstName, secondName, address, city, state, zip, phoneNumber, emailId)
  values('p','Ravi','SR','HYD','TS',89898,0987654321,'Ravi@gmail.com');
- 
+ /*UC-12
+ Implementing ER diagrams*/
+
+ CREATE TABLE Contact
+(PersonId int NOT NULL PRIMARY KEY identity(1,1),
+first_name VARCHAR(30) NOT NULL ,
+last_name varchar(25) not null,
+Address varchar(60) not null,
+City varchar(15) not null,
+State varchar(20) not null,
+Zip varchar(6) not null,
+Phone_Number varchar(12) not null);
+alter table Contact add Contact_TypeID int FOREIGN KEY REFERENCES Contact_Type(Contact_typeID);
+INSERT INTO Contact VALUES
+( 'Black','Panther','Mount road','CA','usa',90908,'9876543210',1),
+('Tony','stark','ST Road','vegas','USA',67676,'8765432190',2),
+('Peter','Spidy','100 road','los angles','NY',34354,'909876564',1),
+('captain','America','112 road','Sandiego','CA',89786,'4567893412',2),
+('Robert','droweny','alt francis road.','london','uk',9087,'987534675',3);
+select * from Contact;
+create table Contact_Type
+(Contact_typeID int not null Primary Key,
+Contact_Type varchar(20) not null );
+select * from Contact_Type;
+INSERT into Contact_Type VALUES 
+(1,'Friends'),
+(2,'Professional'),
+(3,'Family');
+
+CREATE TABLE Contact_BookName
+(PersonId int FOREIGN KEY REFERENCES Contact(PersonId),
+BookID int not null PRIMARY KEY identity(1,1),
+Book_name VARCHAR(30) NOT NULL);
+select * from Contact_BookName;
+INSERT INTO Contact_BookName
+VALUES(1,'MyBook'),
+(2,'Office'),
+(3,'Friends'),
+(4,'college'),
+(5,'Another');
