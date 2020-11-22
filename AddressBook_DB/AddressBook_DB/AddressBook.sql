@@ -125,3 +125,26 @@ VALUES(1,'MyBook'),
 (3,'Friends'),
 (4,'college'),
 (5,'Another');
+/* displaying count of persons based on contact type */
+select Contact_Type,COUNT(Contact.Phone_Number) as Total_Count
+FROM Contact INNER JOIN Contact_Type  
+ON Contact.Contact_typeID = Contact_Type.Contact_typeID
+GROUP BY Contact_Type;
+
+select Contact.first_name,Contact_BookName.Book_name
+FROM Contact INNER JOIN Contact_BookName  
+ON Contact.PersonId = Contact_BookName.PersonId
+GROUP BY Contact.first_name,Contact_BookName.Book_name;
+/*uc-7 display by state*/
+select * from Contact where State = 'usa';
+/* displayuing based on city*/
+select * from contact where City='CA';
+/* count person by city*/
+select city,COUNT(*) as total_count
+from Contact group by city;
+/* count person by state*/
+select State,COUNT(*) as total_count
+from Contact group by state;
+/*sort contact based on forst name*/
+select * from Contact where city = 'CA'
+order by first_name;
