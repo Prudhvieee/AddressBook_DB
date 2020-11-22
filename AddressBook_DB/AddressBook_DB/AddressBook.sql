@@ -67,10 +67,22 @@ delete from addressBook_Table where firstName ='tom' and secondName = 'Spinach';
   UC-9
   Adding the columns for address book  */
  alter table AddressBook_Table add addressBookType varchar(30), addressBookName varchar(40);
-/*
- UC-10
- Renaming the addressBookType columns to contactType in the address book table
-*/
+/* Renaming the addressBookType columns to contactType in the address book table */
 EXEC sp_rename 'AddressBook_Table.addressBookType', 'contactType';
-/* Getting the contact count grouping by the contact type */
+UPDATE AddressBook_Table
+SET contactType = 'Friend'
+WHERE firstName = 'Prudhvi';
+
+UPDATE AddressBook_Table
+SET contactType = 'Family'
+WHERE firstName = 'p';
+
+UPDATE AddressBook_Table
+SET contactType = 'Profession'
+WHERE firstName = 'B' ;
+/* UC-10 Getting the contact count grouping by the contact type */
 select contactType, COUNT(*) as 'Number Of Contacts' from addressBook_Table group by contactType;
+/* UC-11 Adding contact as family type*/
+insert into AddressBook_Table (firstName, secondName, address, city, state, zip, phoneNumber, emailId)
+ values('p','Ravi','SR','HYD','TS',89898,0987654321,'Ravi@gmail.com');
+ 
